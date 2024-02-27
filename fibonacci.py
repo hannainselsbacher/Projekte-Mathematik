@@ -1,5 +1,5 @@
 from functools import cache
-@cache
+#@cache
 
 #-------------------------------------------------------------------------------------------------------------------
 #standard fibonacci implementation 
@@ -35,7 +35,7 @@ print(fibo(500))
 
 # f(2n) = f(n)² + f(n+1)²
 # f(2n + 1) = 2 * f(n+1) * f(n) - f(n)
-
+'''
 def fibo2n(n): 
     if n in {0, 1}: 
         return n 
@@ -45,7 +45,24 @@ def fibo2n(n):
     else: 
         k = n // 2
         return stfib(k) * (2 * stfib(k + 1) - stfib(k))
+'''
+#print(fibo2n(1000))
+
+#---------------------------------------------------------------------------------------------------------------------
+
+
+
+def fibo2n(n): 
+    if n in {0, 1}: 
+        return n
+    if n == 2: 
+        return 1 
+    elif n % 2: 
+        k = (n - 1) // 2
+        return fibo2n(k)**2 + fibo2n(k + 1)**2
+    else: 
+        k = n // 2
+        return fibo2n(k) * (2 * fibo2n(k + 1) - fibo2n(k))
   
 print(fibo2n(1000))
 
-#---------------------------------------------------------------------------------------------------------------------
